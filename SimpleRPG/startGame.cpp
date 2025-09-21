@@ -2,6 +2,7 @@
 #include "Entity.h"
 #include "Witch.h"
 #include <iostream>
+//Cooldown for a player attack choose;
 void cooldown(int seconds)
 {
 	int time{ 1 };
@@ -18,6 +19,7 @@ void cooldown(int seconds)
 		}
 	} while (elapsed<end);
 }
+//Preliminary announcement;
 void updateRoad(Player& P);
 void startGame(unsigned short code,std::string& name)
 {

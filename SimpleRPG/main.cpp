@@ -1,5 +1,5 @@
 //main файл игры
-// 
+//maded by needakefir
 #include <iostream>
 #include <string>
 void startGame(unsigned short code,std::string& name);

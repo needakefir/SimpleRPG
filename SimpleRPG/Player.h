@@ -2,20 +2,23 @@
 #include <map>
 #include "Entity.h"
 #include <string>
+#include <vector>
 class Player : public Entity {
 public:
 	Player(int hp, int damage, int protection, std::string& name);
-	void attackEntity(Entity& e,Type::AttackType::Attack a);
+	void attackEntity(Entity& e,Type::AttackType::playerAttacks a);
 	using Entity::getDamage;
 	using Entity::getHP;
 	using Entity::getProtection;
-	using Entity::hasResist;
 	void addX();
 	void minusX();
 	std::map<Type::MonsterType::E_Types, int>& retMap();
-	void addEntityToMap(Type::MonsterType::E_Types& Entity,int X);
+	void addEntityToMap(Type::MonsterType::E_Types& type,int X);
+	std::vector<Type::PlayerInventoryItemType::PlayerProtectionItems::P_Items>& retProtItems();
+	bool hasResist(std::vector<Type::PlayerInventoryItemType::PlayerProtectionItems::P_Items>& Items,Type::AttackType::monsterAttacks a);
 protected:
-	std::vector<
+	std::vector<Type::PlayerInventoryItemType::PlayerProtectionItems::P_Items> Prot_Items;
 	std::map<Type::MonsterType::E_Types,int> Map;
 	std::string Pname;
+	int P_X;
 };

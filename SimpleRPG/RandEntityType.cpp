@@ -1,7 +1,7 @@
 #include "AllTypes.h"
 int NumGen(int min, int max);
-Type::EntityType::E_Types RandEntityType()
+Type::MonsterType::E_Types RandMonsterType()
 {
-	short temp=NumGen(0,3);
-	return static_cast<Type::EntityType::E_Types>(temp);
+	short temp{ NumGen(1,4) };
+	return static_cast<Type::MonsterType::E_Types>(temp);
 }

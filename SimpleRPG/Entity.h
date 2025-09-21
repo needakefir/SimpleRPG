@@ -2,17 +2,14 @@
 #include "AllTypes.h"
 class Entity {
 	public:
-		Entity(int hp, int damage, int protection,int X=0);
+		Entity(int hp, int damage, int protection);
 		int getHP();
 		int getProtection();
 		int getDamage();
-		int getX();
 		void setHP(int hp);
-		bool hasResist(Type::AttackType::Attack a);
+		bool getDefeated();
 	protected:	
 		int Entity_HP;
 		int Entity_Damage;
 		int Entity_Protection;
-		int E_X;
-		Type::AttackType::Attack resist;
 };
