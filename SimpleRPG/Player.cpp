@@ -13,6 +13,7 @@ std::vector<Type::PlayerInventoryItemType::PlayerProtectionItems::P_Items>& Play
 {
 	return this->Prot_Items;
 }
-
-
-	
+int Player::getX()
+{
+	return this->P_X;
+}

@@ -10,6 +10,7 @@ public:
 	using Entity::getDamage;
 	using Entity::getHP;
 	using Entity::getProtection;
+	int getX();
 	void addX();
 	void minusX();
 	std::map<Type::MonsterType::E_Types, int>& retMap();
