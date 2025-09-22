@@ -1,24 +1,46 @@
 #pragma once
-//Здесь хранятся все необходимые константы для работы программы!
-namespace Type {
-	namespace AttackType{
-		enum class monsterAttacks {
-			
+//This all of constants that need for a game
+//All is in a namespace Type,like classes
+//but don't use a lot of memory
+namespace Type
+{
+	namespace AttackType
+	{
+		enum class Magical_Monster_Attacks {
+			PotionOfUndying,
+			SunLight,
+			WaterCutter,
 		};
-		enum class playerAttacks {
-			MAGIC,
+		enum class Physical_Monster_Attacks {
+			Stone,
+			ThrowSand,
+			Stick,
+
+		};
+		enum class Player_Attacks
+		{
+			//Physical
+			BOW,
 			SWORD,
 			FIST,
-			BOW
+			//-Magical Addon to Physical
+			FireSword,
+			IceBow,
+			IronFist,
+			//-Magic
+			//BloodBending is increase a damage of player,but set a lower hp and get more chance to die from one physical or magical attack.
+			BloodBending,
+
 		};
 	}
 	namespace MonsterType {
 		enum class E_Types {
+			//Null-Nothing
 			Null,
 			Witch,
 			Knight,
 			Goblin,
-			Yeti
+			Yeti,
 		};
 	}
 	namespace PlayerInventoryItemType
@@ -36,4 +58,18 @@ namespace Type {
 			};
 		}
 	}
+}
+namespace Monster_Increase_Physical_And_Magical_Factor
+{
+	float SimpleFactor{ 1.0f };
+	float MiddleFactor{ 1.45f };
+	float HardFactor{ 1.9f };
+	float ImpossibleFactor{ 2.4f };
+}
+namespace Player_Reduction_Physical_And_Magical_Factor
+{
+	float SimpleFactor{ 1.5f };
+	float MiddleFactor{ 1.1f };
+	float HardFactor{ 0.8f };
+	float ImposssibleFactor{ 0.5f };
 }

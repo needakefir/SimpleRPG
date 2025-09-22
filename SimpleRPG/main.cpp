@@ -1,4 +1,4 @@
-//main файл игры
+//main file SimpleRPG
 //maded by needakefir
 #include <iostream>
 #include <string>
@@ -49,3 +49,4 @@ int main()
 	}
 	return 0;
 }
+//End.......

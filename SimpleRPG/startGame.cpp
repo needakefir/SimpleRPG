@@ -19,10 +19,13 @@ void cooldown(int seconds)
 		}
 	} while (elapsed<end);
 }
-//Preliminary announcement;
-void updateRoad(Player& P);
+//Preliminary announcement of updateRoad;
+void updateRoad(Player& P,short difficulty);
+//global Player
 void startGame(unsigned short code,std::string& name)
 {
+	Player p{ 0,0,0,name,0 };
+	setlocale(LC_ALL, "Russian");
 	switch (code)
 	{
 	case 0:
@@ -44,7 +47,7 @@ void startGame(unsigned short code,std::string& name)
 		system("pause");
 		std::cout << "И всего 4 типа атак:Кулаком,Мечом,Луком,Магией!\n";
 		system("pause");
-		std::cout << "Податаки магии:(в разработке)\n";
+		std::cout << "Магия поделена на два типа:для оружия или самостоятельная \n";
 		system("pause");
 		std::cout << "Дабы усложнить игру на всех этапах,в игре будет таймаут выбора атаки!\n";
 		system("pause");
@@ -53,13 +56,42 @@ void startGame(unsigned short code,std::string& name)
 		std::cout << "Удачных вам голодных игр!";
 		system("cls");
 		break;
+		//Simple
 	case 1:
-		Player player{100,10,10,name};
-		Witch Witch{ 150,25,3 };
 		while (true)
 		{
-			updateRoad(player);
+			updateRoad(p,1);
 
 		}
+		break;
+		//Middle
+	case 2:
+		 p{130,12,8,name,0 };
+		while (true)
+		{
+			updateRoad(p, 2);
+		}
+		break;
+	case 3:
+		//Hard
+		 p{115,10,7,name,0 };
+		while (true)
+		{
+			updateRoad(p, 3);
+
+		}
+		break;
+		//Impossible
+	case 4:
+		 p{100,9,5,name,0 };
+		while (true)
+		{
+			updateRoad(p, 4);
+
+		}
+		break;
+		//Do nothing
+	default:
+		;
 	}
 }

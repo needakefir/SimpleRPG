@@ -4,8 +4,7 @@
 class Monster : public Entity
 {
 public:
-	Monster();
-	Monster(int hp, int damage, int protection, Type::MonsterType::E_Types type = Type::MonsterType::E_Types::Null);
+	Monster(int hp, int damage, int protection, std::string& name,Type::MonsterType::E_Types type= Type::MonsterType::E_Types::Null);
 	//include a Entity methods
 	using Entity::getHP;
 	using Entity::getDamage;
@@ -13,10 +12,12 @@ public:
 	using Entity::setHP;
 	using Entity::getDefeated;
 	//-----------------------------
-	bool hasResist(Type::AttackType::playerAttacks Attack);
-	bool attackPlayer(Player& p, Type::AttackType::monsterAttacks a);
+	bool hasResist(Type::AttackType::Player_Attacks Attack);
+	bool attackPlayer(Player& p, Type::AttackType::Physical_Monster_Attacks a);
+	bool attackPlayer(Player& p,Type::AttackType::Magical_Monster_Attacks a)
 	Monster registerMonster(Type::MonsterType::E_Types type,short difficulty);
-protected:
+protected: 
 	Type::MonsterType::E_Types M_type;
-	Type::AttackType::monsterAttacks M_A;
+	Type::AttackType::Magical_Monster_Attacks M_A;
+	Type::AttackType::Physical_Monster_Attacks Ph_A;
 };

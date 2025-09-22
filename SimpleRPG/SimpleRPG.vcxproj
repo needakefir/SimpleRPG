@@ -125,6 +125,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="FightMonster.cpp" />
+    <ClCompile Include="increaseDamage.cpp" />
     <ClCompile Include="Knight.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Monster.cpp" />
@@ -138,6 +140,7 @@
   <ItemGroup>
     <ClInclude Include="AllTypes.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="increaseDamage.h" />
     <ClInclude Include="Knight.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Player.h" />

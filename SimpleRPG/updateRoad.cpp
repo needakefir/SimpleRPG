@@ -1,37 +1,39 @@
 #include <iostream>
 #include <conio.h>
 #include "Player.h"
-#include <vector>
 #include "Entity.h"
 #include "Monster.h"
 int NumGen(int min, int max);
 Type::MonsterType::E_Types& RandMonsterType();
-void updateRoad(Player& p)
+void updateRoad(Player& p,short difficulty)
 {
 	Monster m;
 	//Create a new monster;
 	Type::MonsterType::E_Types M = RandMonsterType();
-	m.registerMonster(M);
+	int X = p.getX() + NumGen(3, 7);
+	m.registerMonster(M,difficulty);
 	//Add to a memory 
-	p.addEntityToMap(M,p.getX() + NumGen(3, 7));
+	p.addEntityToMap(M,X);
 
 	char Ctrl;
 	while (true)
 		Ctrl = _getch();
-		if (Ctrl == 'W' || Ctrl == 'w')
+		if (Ctrl == 'D' || Ctrl == 'd')
 		{
 			//If player reaches the X and monster got defeated,then generate a new;
-			if (p.getX() == p.retMap().find(M)->second && m.getDefeated())
+			if (p.getX() == X)
 			{
+				do
+				{
+					
+				} while (!m.getDefeated());
 				M = RandMonsterType();
-				p.addEntityToMap(M, p.getX() + NumGen(3, 5));
-
+				X = p.getX() + NumGen(3, 7);
 			}
 		}
-		if(Ctrl=='S' || Ctrl=='s')
+		if (Ctrl=='a' ||Ctrl=='A')
 		{
 			p.minusX();
 			system("cls");
-
 		}
 }
