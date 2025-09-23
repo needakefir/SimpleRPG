@@ -124,6 +124,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cooldown.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="FightMonster.cpp" />
     <ClCompile Include="increaseDamage.cpp" />
@@ -132,6 +133,7 @@
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="NumGen.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="printPlayerAttacks.cpp" />
     <ClCompile Include="RandEntityType.cpp" />
     <ClCompile Include="updateRoad.cpp" />
     <ClCompile Include="startGame.cpp" />

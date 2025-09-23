@@ -2,29 +2,13 @@
 #include "Entity.h"
 #include "Witch.h"
 #include <iostream>
-//Cooldown for a player attack choose;
-void cooldown(int seconds)
-{
-	int time{ 1 };
-	clock_t start=clock();
-	clock_t end = seconds * CLOCKS_PER_SEC;
-	clock_t elapsed;
-	do
-	{
-		elapsed = clock() - start;
-		if (elapsed == time * CLOCKS_PER_SEC)
-		{
-			std::cout << "Времени для раздумия:" << seconds - static_cast<int>(elapsed / CLOCKS_PER_SEC);
-			++time;
-		}
-	} while (elapsed<end);
-}
+
 //Preliminary announcement of updateRoad;
-void updateRoad(Player& P,short difficulty);
+int updateRoad(Player& P,short difficulty);
 //global Player
 void startGame(unsigned short code,std::string& name)
 {
-	Player p{ 0,0,0,name,0 };
+	Player p{ 0,0,0,name};
 	setlocale(LC_ALL, "Russian");
 	switch (code)
 	{
@@ -51,7 +35,7 @@ void startGame(unsigned short code,std::string& name)
 		system("pause");
 		std::cout << "Дабы усложнить игру на всех этапах,в игре будет таймаут выбора атаки!\n";
 		system("pause");
-		std::cout << "В режиме Simple таймаут 20 секунд на действие,Middle-15,Hard-10,Impossible-5\n";
+		std::cout << "В режиме Simple таймаут 15 секунд на действие,Middle-10,Hard-7,Impossible-4\n";
 		std::cout << "Все остальные механики вы узнаете лишь в игре:3\n";
 		std::cout << "Удачных вам голодных игр!";
 		system("cls");

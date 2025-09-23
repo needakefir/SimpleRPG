@@ -17,7 +17,7 @@ public:
 	bool hasResist(Type::AttackType::Player_Attacks Attack);
 	bool attackPlayer(Player& p, Type::AttackType::Physical_Monster_Attacks a);
 	bool attackPlayer(Player& p, Type::AttackType::Magical_Monster_Attacks a);
-	Monster registerMonster(Type::MonsterType::E_Types type,short difficulty);
+	Monster registerMonster(Type::MonsterType::E_Types type);
 protected: 
 	Type::MonsterType::E_Types M_type;
 	Type::AttackType::Magical_Monster_Attacks M_A;

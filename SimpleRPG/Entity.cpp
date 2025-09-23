@@ -12,15 +12,3 @@ bool Entity::getDefeated(){return (this->getHP() <= 0) ? true : false;}
  std::string& Entity::getName(){ return this->E_Name; }
  void Entity::setDamage(int damage){this->Entity_Damage = damage;}
  void Entity::setName(std::string& name){this->E_Name = name;}
- void Entity::increaseDamage(Type::AttackType::Player_Attacks a)
- {
-
- }
- void Entity::increaseDamage(Type::AttackType::Physical_Monster_Attacks W)
- {
-
- }
- void Entity::increaseDamage(Type::AttackType::Magical_Monster_Attacks M)
- {
-
- }

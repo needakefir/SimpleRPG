@@ -1,6 +1,6 @@
 #pragma once
 #include <map>
-#include "Entity.h"
+#include "Monster.h"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -13,13 +13,14 @@ public:
 	int getX() const;
 	void addX();
 	void minusX();
-	std::map<Type::MonsterType::E_Types, int>& retMap();
-	void addEntityToMap(Type::MonsterType::E_Types& type,int X);
-	std::vector<Type::PlayerInventoryItemType::PlayerProtectionItems::P_Items>& retProtItems();
-	bool hasResist(std::vector<Type::PlayerInventoryItemType::PlayerProtectionItems::P_Items>& Items, Type::AttackType::Magical_Monster_Attacks m);
-	bool hasResist(std::vector<Type::PlayerInventoryItemType::PlayerProtectionItems::P_Items>& Items, Type::AttackType::Physical_Monster_Attacks m);
+
+	std::map<int,Type::MonsterType::E_Types>& retMap();
+	void addEntityToMap(int X,Type::MonsterType::E_Types type);
+	std::vector<Type::PlayerInventoryItemType::CanBeInPlayerInventory::P_Items>& retProtItems();
+	bool hasResist(std::vector<Type::PlayerInventoryItemType::CanBeInPlayerInventory::P_Items>& Items, Type::AttackType::Magical_Monster_Attacks m);
+	bool hasResist(std::vector<Type::PlayerInventoryItemType::CanBeInPlayerInventory::P_Items>& Items, Type::AttackType::Physical_Monster_Attacks m);
 protected:
-	std::vector<Type::PlayerInventoryItemType::PlayerProtectionItems::P_Items> Prot_Items;
-	std::map<Type::MonsterType::E_Types,int> Map;
+	std::vector<Type::PlayerInventoryItemType::CanBeInPlayerInventory::P_Items> P_Items;
+	std::map<int,Type::MonsterType::E_Types> Map;
 	int P_X;
 };

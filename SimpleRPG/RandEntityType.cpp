@@ -1,7 +1,8 @@
 #include "AllTypes.h"
+//Prelimitary declaration NumGen
 int NumGen(int min, int max);
+//Return pseudorandom type of monster....
 Type::MonsterType::E_Types RandMonsterType()
 {
-	short temp{ NumGen(1,4) };
-	return static_cast<Type::MonsterType::E_Types>(temp);
+	return static_cast<Type::MonsterType::E_Types>(NumGen(1, 4));
 }

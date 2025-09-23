@@ -13,7 +13,7 @@ float increaseDamage(Type::AttackType::Player_Attacks a, short difficulty)
 		return static_cast<float> (Player_Reduction_Physical_And_Magical_Factor::ImposssibleFactor);
 	}
 }
-float increaseDamage(Type::AttackType::Physical_Monster_Attacks W, short difficulty)
+float increaseDamage(Type::AttackType::Physical_Monster_Attacks Ph, short difficulty)
 {
 	switch (difficulty)
 	{

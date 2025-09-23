@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 //This all of constants that need for a game
 //All is in a namespace Type,like classes
 //but don't use a lot of memory
@@ -49,12 +50,15 @@ namespace Type
 		//A shield gives a resistance for a physical attacks of monsters;
 		// IceBall gives resistance for a Ice Attacks;
 		// RespawnPaper can respawn player,and player can continue the game from place he dies;
-		namespace PlayerProtectionItems {
+		namespace CanBeInPlayerInventory {
 			enum class P_Items {
 				FirePaper,
 				Shield,
 				IceBall,
-				RespawnPaper
+				RespawnPaper,
+				FireSwordPaper,
+				IceBowPaper,
+				IronFistPaper
 			};
 		}
 	}
@@ -72,4 +76,18 @@ namespace Player_Reduction_Physical_And_Magical_Factor
 	float MiddleFactor{ 1.1f };
 	float HardFactor{ 0.8f };
 	float ImposssibleFactor{ 0.5f };
+}
+namespace Names {
+	std::string Witch{ "Witch" };
+	std::string Yeti{ "Yeti" };
+	std::string Knight{ "Knight" };
+	std::string Goblin{ "Goblin" };
+	std::string Null{ "NULL" };
+}
+namespace cooldownDurablity
+{
+	int SimpleCooldown(15);
+	int MiddleCooldown(10);
+	int HardCooldown(7);
+	int ImpossibleCooldown(4);
 }
