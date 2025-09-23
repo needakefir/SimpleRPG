@@ -1,7 +1,7 @@
 #include "Entity.h"
 #include "Player.h"
 #include "Monster.h"
-Player::Player(int hp, int damage, int protection, std::string& name,int X=0) :Entity(hp, damage, protection, name),P_X(X) {}
+Player::Player(int hp, int damage,std::string& name,int X=0) :Entity(hp, damage, name),P_X(X) {}
 void Player::addX(){++this->P_X;}
 void Player::minusX(){--this->P_X;}
 void Player::addEntityToMap(Type::MonsterType::E_Types& type,int X){this->Map.emplace(type, X);}

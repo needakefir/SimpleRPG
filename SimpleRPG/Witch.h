@@ -4,7 +4,7 @@
 #include "AllTypes.h"
 class Witch:public Monster{
 public:
-	Witch(int hp, int damage, int protection);
+	Witch(int hp, int damage,std::string& name);
 	using Monster::attackPlayer;
 
 };

@@ -66,7 +66,6 @@ void startGame(unsigned short code,std::string& name)
 		break;
 		//Middle
 	case 2:
-		 p{130,12,8,name,0 };
 		while (true)
 		{
 			updateRoad(p, 2);
@@ -74,16 +73,13 @@ void startGame(unsigned short code,std::string& name)
 		break;
 	case 3:
 		//Hard
-		 p{115,10,7,name,0 };
 		while (true)
 		{
 			updateRoad(p, 3);
-
 		}
 		break;
 		//Impossible
 	case 4:
-		 p{100,9,5,name,0 };
 		while (true)
 		{
 			updateRoad(p, 4);
