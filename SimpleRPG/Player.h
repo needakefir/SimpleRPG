@@ -13,7 +13,8 @@ public:
 	int getX() const;
 	void addX();
 	void minusX();
-
+	//Replaces a - to ! or any char
+	void replaceCharFromMap(const char* src,short length,short countRoad);
 	std::map<int,Type::MonsterType::E_Types>& retMap();
 	void addEntityToMap(int X,Type::MonsterType::E_Types type);
 	std::vector<Type::PlayerInventoryItemType::CanBeInPlayerInventory::P_Items>& retProtItems();

@@ -1,5 +1,5 @@
 #include "Entity.h"
-#include "AllTypes.h"
+#include "Constants and Types.h"
 Entity::Entity(int hp, int damage,std::string& name):Entity_Damage(damage), Entity_HP(hp),E_Name(name){}
 int Entity::getDamage() const { return this->Entity_Damage; }
 int Entity::getHP() const{return this->Entity_HP; }

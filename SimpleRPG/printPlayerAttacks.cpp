@@ -1,5 +1,5 @@
 #include "Player.h"
-#include "AllTypes.h"
+#include "Constants and Types.h"
 #include <vector>
 void printPlayerAttacks(Player& p)
 {

@@ -1,4 +1,4 @@
-#include "AllTypes.h"
+#include "Constants and Types.h"
 //Prelimitary declaration NumGen
 int NumGen(int min, int max);
 //Return pseudorandom type of monster....

@@ -1,5 +1,5 @@
 //This is so weird,need to refactor the code.
-#include "AllTypes.h"
+#include "Constants and Types.h"
 #include "Monster.h"
 #include "Player.h"
 Monster::Monster(int hp=0, int damage=0,std::string& name, Type::MonsterType::E_Types type) :Entity(hp, damage,name), M_type(type) {}

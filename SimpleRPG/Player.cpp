@@ -18,3 +18,8 @@ void Player::attackEntity(Monster& m, Type::AttackType::Player_Attacks a)
 	}
 
 }
+void Player::replaceCharFromMap(const char* src,short length,short countRoad)
+{
+	std::map<int, Type::MonsterType::E_Types> map = this->retMap();
+
+}

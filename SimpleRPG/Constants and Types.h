@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <vector>
 //This all of constants that need for a game
 //All is in a namespace Type,like classes
 //but don't use a lot of memory
@@ -83,6 +84,7 @@ namespace Names {
 	std::string Knight{ "Knight" };
 	std::string Goblin{ "Goblin" };
 	std::string Null{ "NULL" };
+
 }
 namespace cooldownDurablity
 {

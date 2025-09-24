@@ -1,5 +1,5 @@
 #pragma once
-#include "AllTypes.h"
+#include "Constants and Types.h"
 #include <ostream>
 class Entity {
 	public:

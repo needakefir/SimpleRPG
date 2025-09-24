@@ -1,12 +1,9 @@
-#include "ctime"
+#include <ctime>
 #include <iostream>
-#include <string>
-#include <vector>
-int cooldown(short seconds)
+#include "Constants and Types.h"
+std::string cooldown(short seconds)
 {
 	std::string in;
-	std::vector<std::string> attackCompare{ "Bow","Sword","Fist","IronFist","FireSword","IceBow" };
-
 	int time{ 1 };
 	short minusSeconds{ --seconds };
 	clock_t start = clock();
@@ -26,7 +23,7 @@ int cooldown(short seconds)
 					if (i == in)
 					{
 						//End of cycle
-						return time * CLOCKS_PER_SEC;
+						return in;
 					}
 					else
 					{
@@ -40,5 +37,5 @@ int cooldown(short seconds)
 			}
 		}
 	} while (elapsed < end);
-	return static_cast<int>(elapsed);
+	return "Nothing";
 }
