@@ -18,7 +18,7 @@ std::string cooldown(short seconds)
 			//Check every second for input,else repeat std:::cin;
 			if (elapsed == (seconds - minusSeconds) * CLOCKS_PER_SEC)
 			{
-				for (auto& i : attackCompare)
+				for (auto& i : ContainerOfAttacks::attacks)
 				{
 					if (i == in)
 					{

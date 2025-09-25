@@ -1,5 +1,5 @@
 #pragma once
-#include "AllTypes.h"
+#include "Constants and Types.h"
 #include "Entity.h"
 float increaseDamage(Type::AttackType::Player_Attacks a, short difficulty);
 float increaseDamage(Type::AttackType::Physical_Monster_Attacks W,short difficulty);

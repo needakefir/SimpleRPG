@@ -1,7 +1,8 @@
 #pragma once
 #include "Player.h"
 #include  "Entity.h"
-class Monster : public Entity
+#include "Monster_AI.h"
+class Monster : public Entity,Monster_AI
 {
 public:
 	Monster(int hp, int damage, std::string& name,Type::MonsterType::E_Types type= Type::MonsterType::E_Types::Null);
@@ -14,11 +15,14 @@ public:
 	using Entity::setDamage;
 	//-----------------------------
 	void setType(Type::MonsterType::E_Types type);
+	Type::MonsterType::E_Types getType();
 	bool hasResist(Type::AttackType::Player_Attacks Attack);
 	bool attackPlayer(Player& p, Type::AttackType::Physical_Monster_Attacks a);
 	bool attackPlayer(Player& p, Type::AttackType::Magical_Monster_Attacks a);
 	Monster registerMonster(Type::MonsterType::E_Types type);
+	void setAI(short difficulty);
 protected: 
+
 	Type::MonsterType::E_Types M_type;
 	Type::AttackType::Magical_Monster_Attacks M_A;
 	Type::AttackType::Physical_Monster_Attacks Ph_A;

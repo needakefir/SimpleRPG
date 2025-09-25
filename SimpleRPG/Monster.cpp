@@ -23,3 +23,11 @@ bool Monster::hasResist(Type::AttackType::Player_Attacks  attack)
 {
 	return false;
 }
+Type::MonsterType::E_Types Monster::getType()
+{
+	return this->M_type;
+}
+void setAI(short difficulty)
+{
+
+}

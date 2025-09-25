@@ -1,9 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
-//This all of constants that need for a game
-//All is in a namespace Type,like classes
-//but don't use a lot of memory
+//Main namespace Type,that includes a needed types of attacks,monstertype and etc.
 namespace Type
 {
 	namespace AttackType
@@ -21,6 +19,7 @@ namespace Type
 		};
 		enum class Player_Attacks
 		{
+			
 			//Physical
 			BOW,
 			SWORD,
@@ -32,7 +31,7 @@ namespace Type
 			//-Magic
 			//BloodBending is increase a damage of player,but set a lower hp and get more chance to die from one physical or magical attack.
 			BloodBending,
-
+			Null=-1
 		};
 	}
 	namespace MonsterType {
@@ -64,6 +63,7 @@ namespace Type
 		}
 	}
 }
+//By the name of namespace its need for increasing a damage of monsters depend on difficulty
 namespace Monster_Increase_Physical_And_Magical_Factor
 {
 	float SimpleFactor{ 1.0f };
@@ -71,6 +71,7 @@ namespace Monster_Increase_Physical_And_Magical_Factor
 	float HardFactor{ 1.9f };
 	float ImpossibleFactor{ 2.4f };
 }
+//Player reduction of damage by difficulty
 namespace Player_Reduction_Physical_And_Magical_Factor
 {
 	float SimpleFactor{ 1.5f };
@@ -78,18 +79,31 @@ namespace Player_Reduction_Physical_And_Magical_Factor
 	float HardFactor{ 0.8f };
 	float ImposssibleFactor{ 0.5f };
 }
+//Needed for ConvertStringToType.cpp
+//If you want to add new style of attacks,please pay attention to function in the top
+//This function returns the type of attack you need to follow the list order according to Player_Attacks
+
+namespace ContainerOfAttacks
+{
+	std::vector<std::string> attacks{ "Bow","Sword","Fist","FireSword","IceBow","IronFist","BloodBending" };
+}
+//Names needed for a registerMonster() in a Monster.cpp
 namespace Names {
 	std::string Witch{ "Witch" };
 	std::string Yeti{ "Yeti" };
 	std::string Knight{ "Knight" };
 	std::string Goblin{ "Goblin" };
 	std::string Null{ "NULL" };
-
 }
+//Needed a for function cooldown in cooldown.cpp
 namespace cooldownDurablity
 {
 	int SimpleCooldown(15);
 	int MiddleCooldown(10);
 	int HardCooldown(7);
 	int ImpossibleCooldown(4);
+}
+namespace DamageAll
+{
+
 }

@@ -5,15 +5,18 @@
 #include "Monster.h"
 #include <cstdlib>
 #include "Constants and Types.h"
+//If player dies,the return this 
 constexpr auto Player_Fail = -1;
 //For a updating road
 constexpr auto RoadLength = 78;
 //Pre-announcement of needed functions
+float ReductionDamageForPlayer(short difficulty);
+Type::AttackType::Player_Attacks ConvertStringToType(std::string& source);
 int NumGen(int min, int max);
 Type::MonsterType::E_Types& RandMonsterType();
 void printPlayerAttacks(Player& p);
 std::string cooldown(short seconds);
-void printRoad(const char* HeadPlayer, const char* BodyPlayer, const char* roadline);
+void printRoad(const char* HeadPlayer, const char* BodyPlayer, const char* roadline,short length);
 //------
 //All needed variables
 //-----------------------
@@ -58,7 +61,7 @@ int updateRoad(Player& p, short difficulty)
 	//Register monster
 	m.registerMonster(type);
 	//Print Road
-	printRoad(HeadPlayer,BodyPlayer,roadline);
+	printRoad(HeadPlayer,BodyPlayer,roadline,RoadLength);
 	char Ctrl;
 	while (true)
 	Ctrl = _getch();
@@ -67,7 +70,7 @@ int updateRoad(Player& p, short difficulty)
 		system("cls");
 		std::swap(HeadPlayer[i], HeadPlayer[i + 1]);
 		std::swap(BodyPlayer[i], BodyPlayer[i + 1]);
-		printRoad(HeadPlayer, BodyPlayer, roadline);
+		printRoad(HeadPlayer, BodyPlayer, roadline,RoadLength);
 		++i;
 		p.addX();
 		if (p.getX() == RoadLength * countRoad)
@@ -76,13 +79,11 @@ int updateRoad(Player& p, short difficulty)
 			std::swap(BodyPlayer[0], BodyPlayer[78]);
 			++countRoad;
 			system("cls");
-			printRoad(HeadPlayer, BodyPlayer, roadline);
+			printRoad(HeadPlayer, BodyPlayer, roadline,RoadLength);
 		}
 		//If player reaches the X then we attack the monster.If successful,then generate new
 		if (p.getX() == X)
 		{
-			do
-			{
 				std::cout << roadline;
 				std::cout << "Вы столкнулись с монстром!\n";
 				std::cout << "Его характеристики:\n";
@@ -90,10 +91,13 @@ int updateRoad(Player& p, short difficulty)
 				std::cout << roadline;
 				std::cout << "Ваши характеристики:\n";
 				std::cout << p;
-				std::cout << "Выберите тип атаки:\n";
-				printPlayerAttacks(p);
-				std::string attack{ cooldown(cooldownDur) };
-			} while (m.getDefeated() || p.getDefeated());
+				std::cout << "Выберите тип атаки:\n";		
+				do
+				{
+					printPlayerAttacks(p);
+					std::string attack{ cooldown(cooldownDur) };
+					p.attackEntity(m, ConvertStringToType(attack));
+				}while (!m.getDefeated() && !p.getDefeated());
 			if (m.getDefeated())
 			{
 				p.addEntityToMap(X, type);
@@ -143,7 +147,13 @@ int updateRoad(Player& p, short difficulty)
 					std::cout << "Выберите тип атаки:\n";
 					printPlayerAttacks(p);
 					std::string attack{ cooldown(cooldownDur) };
-				} while (m.getDefeated() || p.getDefeated());
+				} while (!m.getDefeated() && !p.getDefeated());
+		     if (p.getDefeated())
+			{
+				std::cout << "ВЫ проиграли....\n";
+				return Player_Fail;
+
+			}
 			}
 		}
 }
