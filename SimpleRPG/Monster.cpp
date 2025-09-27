@@ -21,13 +21,14 @@ Monster Monster::registerMonster(Type::MonsterType::E_Types type)
 void Monster::setType(Type::MonsterType::E_Types type){this->M_type = type;}
 bool Monster::hasResist(Type::AttackType::Player_Attacks  attack)
 {
+
 	return false;
 }
-Type::MonsterType::E_Types Monster::getType()
+bool attackPlayer(Player& p, Type::AttackType::Physical_Monster_Attacks a)
 {
-	return this->M_type;
+
 }
-void setAI(short difficulty)
+bool attackPlayer(Player& p, Type::AttackType::Magical_Monster_Attacks a)
 {
 
 }

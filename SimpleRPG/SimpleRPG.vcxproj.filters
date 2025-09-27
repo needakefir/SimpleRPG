@@ -66,10 +66,16 @@
     <ClCompile Include="ReductionDamage.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="AI.cpp">
+    <ClCompile Include="Monster_AI.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Yeti.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchForLastMonster.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ReplaceCharFromMap.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -92,7 +98,7 @@
     <ClInclude Include="Monster.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="increaseDamage.h">
+    <ClInclude Include="Increase and Reduction Damage.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Monster_AI.h">

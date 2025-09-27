@@ -4,24 +4,37 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include "Constants and Types.h"
 class Player : public Entity {
 public:
-	Player(int hp, int damage, std::string& name,int X);
-	void attackEntity(Monster& m,Type::AttackType::Player_Attacks a);
+	//Constructor
+	Player(int hp,int damage,std::string& name,int X);
+	void attackEntity(Monster& m,Type::AttackType::Player_Attacks a,short difficulty);
 	using Entity::getDamage;
 	using Entity::getHP;
+	using Entity::setDamage;
 	int getX() const;
 	void addX();
 	void minusX();
 	//Replaces a - to ! or any char
-	void replaceCharFromMap(const char* src,short length,short countRoad);
 	std::map<int,Type::MonsterType::E_Types>& retMap();
 	void addEntityToMap(int X,Type::MonsterType::E_Types type);
-	std::vector<Type::PlayerInventoryItemType::CanBeInPlayerInventory::P_Items>& retProtItems();
-	bool hasResist(std::vector<Type::PlayerInventoryItemType::CanBeInPlayerInventory::P_Items>& Items, Type::AttackType::Magical_Monster_Attacks m);
-	bool hasResist(std::vector<Type::PlayerInventoryItemType::CanBeInPlayerInventory::P_Items>& Items, Type::AttackType::Physical_Monster_Attacks m);
+	std::vector<Type::PlayerInventoryItemType::P_Items>& retPlayerItems();
+	std::map<int, Type::PlayerInventoryItemType::P_Items>& retMapItems();
+	std::map<int, bool>& retDefeatedOrTaken(TargetsForRetDefeatedOrTaken::Targets t);
+	bool hasResist(std::vector<Type::PlayerInventoryItemType::P_Items>& Items, Type::AttackType::Magical_Monster_Attacks m);
+	bool hasResist(std::vector<Type::PlayerInventoryItemType::P_Items>& Items, Type::AttackType::Physical_Monster_Attacks m);
 protected:
-	std::vector<Type::PlayerInventoryItemType::CanBeInPlayerInventory::P_Items> P_Items;
-	std::map<int,Type::MonsterType::E_Types> Map;
+	//Items in Player Inventory
+	std::vector<Type::PlayerInventoryItemType::P_Items> P_Items;
+	//Map for Monsters
+	std::map<int, Type::MonsterType::E_Types> Map_Monsters;
+	//Map for player inventory
+	std::map<int, Type::PlayerInventoryItemType::P_Items> Player_Inventory;
+	//For defeated monsters
+	std::map<int, bool> Map_Defeated_Monsters;
+	//For taken items
+	std::map<int, bool> Map_Taken_Items;
+	//X of player on map
 	int P_X;
 };

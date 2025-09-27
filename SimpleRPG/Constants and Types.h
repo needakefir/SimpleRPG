@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <string>
 #include <vector>
 //Main namespace Type,that includes a needed types of attacks,monstertype and etc.
@@ -6,16 +6,19 @@ namespace Type
 {
 	namespace AttackType
 	{
+		//Potion Of Undying gives a protection from any damage before the attack
+		//That needed for Monster_AI class.
+		//SunLight and WaterCutter can be used by any monster,but witch has more priority
 		enum class Magical_Monster_Attacks {
 			PotionOfUndying,
 			SunLight,
 			WaterCutter,
 		};
+		//Witch has the lowest priority of physical attack
 		enum class Physical_Monster_Attacks {
 			Stone,
 			ThrowSand,
 			Stick,
-
 		};
 		enum class Player_Attacks
 		{
@@ -50,7 +53,6 @@ namespace Type
 		//A shield gives a resistance for a physical attacks of monsters;
 		// IceBall gives resistance for a Ice Attacks;
 		// RespawnPaper can respawn player,and player can continue the game from place he dies;
-		namespace CanBeInPlayerInventory {
 			enum class P_Items {
 				FirePaper,
 				Shield,
@@ -60,7 +62,6 @@ namespace Type
 				IceBowPaper,
 				IronFistPaper
 			};
-		}
 	}
 }
 //By the name of namespace its need for increasing a damage of monsters depend on difficulty
@@ -82,7 +83,6 @@ namespace Player_Reduction_Physical_And_Magical_Factor
 //Needed for ConvertStringToType.cpp
 //If you want to add new style of attacks,please pay attention to function in the top
 //This function returns the type of attack you need to follow the list order according to Player_Attacks
-
 namespace ContainerOfAttacks
 {
 	std::vector<std::string> attacks{ "Bow","Sword","Fist","FireSword","IceBow","IronFist","BloodBending" };
@@ -101,9 +101,94 @@ namespace cooldownDurablity
 	int SimpleCooldown(15);
 	int MiddleCooldown(10);
 	int HardCooldown(7);
-	int ImpossibleCooldown(4);
+	int ImpossibleCooldown(5);
 }
-namespace DamageAll
+//the standard value of damage for player
+namespace StandardDamageScore
 {
-
+	short StandardDamageBow(20);
+	short StandardDamageSword(25);
+	short StandardDamageFist(10);
+}
+//this namespace stores damage scaling values ​​based on difficulty.
+namespace IncreaseDamageMagicPlayerItems{
+	//Fire Sword
+	float FireSword_Simple{ 1.8f };
+	float FireSword_Middle{ 1.6f };
+	float FireSword_Hard{ 1.4f };
+	float FireSword_Impossible{ 1.2f };
+	//End Fire Sword
+	//Ice Bow
+	float IceBow_Simple{ 1.9f };
+	float IceBow_Middle{ 1.7f };
+	float IceBow_Hard{ 1.5f };
+	float IceBow_Impossible{ 1.3f };
+	//End Ice Bow
+	//IronFist
+	float IronFist_Simple{ 1.7f };
+	float IronFist_Middle{ 1.5f };
+	float IronFist_Hard{ 1.3f };
+	float IronFist_Impossible{ 1.1f };
+	//End Iron Fist
+}
+namespace AttackChanceForAI {
+	namespace MagicAttackChance {
+		//For a Witch
+		float MagicSimpleWitch{ 0.65f };
+		float MagicMiddleWitch{ 0.7f };
+		float MagicHardWitch{ 0.8f };
+		float MagicImpossibleWitch{ 0.95f };
+		//For a Knight
+		float MagicSimpleKnight{ 0.1f };
+		float MagicMiddleKnight{ 0.15f };
+		float MagicHardKnight{ 0.25f };
+		float MagicImpossibleKnight{ 0.3f };
+		//For a goblin
+		float MagicSimpleGoblin{ 0.01f };
+		float MagicMiddleGoblin{ 0.03f };
+		float MagicHardGoblin{ 0.07f };
+		float MagicImpossibleGoblin{ 0.1f };
+		//For a Yeti
+		float MagicSimpleYeti{ 0.15f };
+		float MagicMiddleYeti{ 0.2f };
+		float MagicHardYeti{ 0.3f };
+		float MagicImpossibleYeti{ 0.35f };
+	}
+	namespace PhysicalAttackChance {
+		//For a Witch
+		float PhysicalSimpleWitch{ 0.35f };
+		float PhysicalMiddleWitch{ 0.3f };
+		float PhysicalHardWitch{ 0.2f };
+		float PhysicalImpossibleWitch{ 0.05f };
+		//For a Knight
+		float PhysicalSimpleKnight{ 0.9f };
+		float PhysicalMiddleKnight{ 0.85f };
+		float PhysicalHardKnight{ 0.75f };
+		float PhysicalImpossibleKnight{ 0.7f };
+		//For a goblin
+		float PhysicalSimpleGoblin{ 0.99f };
+		float PhysicalMiddleGoblin{ 0.97f };
+		float PhysicalHardGoblin{ 0.93f };
+		float PhysicalImpossibleGoblin{ 0.9f };
+		//For a Yeti
+		float PhysicalSimpleYeti{ 0.85f };
+		float PhysicalMiddleYeti{ 0.8f };
+		float PhysicalHardYeti{ 0.7f };
+		float PhysicalImpossibleYeti{ 0.65f };
+	}
+}
+//Chars for ReplacFromMap.cpp
+namespace Chars
+{
+	char Taken_Or_Defeated{ '+' };
+	char MonsterOnMap{ '!' };
+	char ItemMap{ '?' };
+}
+namespace TargetsForRetDefeatedOrTaken
+{
+	enum class Targets
+	{
+		DEFEATED,
+		TAKEN
+	};
 }

@@ -124,7 +124,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AI.cpp" />
+    <ClCompile Include="Monster_AI.cpp" />
     <ClCompile Include="ConvertStringToType.cpp" />
     <ClCompile Include="cooldown.cpp" />
     <ClCompile Include="Entity.cpp" />
@@ -139,6 +139,8 @@
     <ClCompile Include="printRoad.cpp" />
     <ClCompile Include="RandEntityType.cpp" />
     <ClCompile Include="ReductionDamage.cpp" />
+    <ClCompile Include="ReplaceCharFromMap.cpp" />
+    <ClCompile Include="SearchForLastMonster.cpp" />
     <ClCompile Include="updateRoad.cpp" />
     <ClCompile Include="startGame.cpp" />
     <ClCompile Include="Witch.cpp" />
@@ -148,7 +150,7 @@
     <ClInclude Include="Monster_AI.h" />
     <ClInclude Include="Constants and Types.h" />
     <ClInclude Include="Entity.h" />
-    <ClInclude Include="increaseDamage.h" />
+    <ClInclude Include="Increase and Reduction Damage.h" />
     <ClInclude Include="Knight.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Player.h" />

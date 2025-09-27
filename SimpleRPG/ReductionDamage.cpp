@@ -1,4 +1,5 @@
 #include "Constants and Types.h"
+#include "Increase and Reduction Damage.h"
 float ReductionDamageForPlayer(short difficulty)
 {
 	switch (difficulty)

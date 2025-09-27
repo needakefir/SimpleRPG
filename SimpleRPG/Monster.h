@@ -2,10 +2,10 @@
 #include "Player.h"
 #include  "Entity.h"
 #include "Monster_AI.h"
-class Monster : public Entity,Monster_AI
+class Monster : public Entity
 {
 public:
-	Monster(int hp, int damage, std::string& name,Type::MonsterType::E_Types type= Type::MonsterType::E_Types::Null);
+	Monster(int hp,int damage, std::string& name,Type::MonsterType::E_Types type= Type::MonsterType::E_Types::Null);
 	//include a Entity methods
 	using Entity::getHP;
 	using Entity::getDamage;
@@ -15,14 +15,12 @@ public:
 	using Entity::setDamage;
 	//-----------------------------
 	void setType(Type::MonsterType::E_Types type);
-	Type::MonsterType::E_Types getType();
 	bool hasResist(Type::AttackType::Player_Attacks Attack);
 	bool attackPlayer(Player& p, Type::AttackType::Physical_Monster_Attacks a);
 	bool attackPlayer(Player& p, Type::AttackType::Magical_Monster_Attacks a);
 	Monster registerMonster(Type::MonsterType::E_Types type);
-	void setAI(short difficulty);
 protected: 
-
+	Monster_AI AI;
 	Type::MonsterType::E_Types M_type;
 	Type::AttackType::Magical_Monster_Attacks M_A;
 	Type::AttackType::Physical_Monster_Attacks Ph_A;
