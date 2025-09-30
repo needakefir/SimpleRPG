@@ -3,7 +3,7 @@
 #include "Monster.h"
 #include "Constants and Types.h"
 #include "Increase and Reduction Damage.h"
-Player::Player(int hp, int damage,std::string& name,int X=0) :Entity(hp, damage, name),P_X(X) {}
+Player::Player(int hp,std::string& name,int X=0) :Entity(hp,name),P_X(X) {}
 void Player::addX(){++this->P_X;}
 void Player::minusX(){--this->P_X;}
 void Player::addEntityToMap(int X, Type::MonsterType::E_Types type) { this->Map_Monsters.emplace(X,type); }
@@ -18,7 +18,7 @@ void Player::attackEntity(Monster& m, Type::AttackType::Player_Attacks a,short d
 	}
 	else
 	{
-		m.setHP(m.getHP() - this->getDamage()*ReductionDamageForPlayer(difficulty));
+		m.setHP(m.getHP() - * ReductionDamageForPlayer(difficulty));
 	}
 	 
 }
@@ -40,4 +40,11 @@ bool hasResist(std::vector<Type::PlayerInventoryItemType::P_Items>& Items, Type:
 
 	}
 }
-bool hasResist(std::vector<Type::PlayerInventoryItemType::P_Items>& Items, Type::AttackType::Physical_Monster_Attacks m);
+bool hasResist(std::vector<Type::PlayerInventoryItemType::P_Items>& Items, Type::AttackType::Physical_Monster_Attacks m)
+{
+
+}
+std::map<int, Type::PlayerInventoryItemType::P_Items>& Player::retMapItems()
+{
+	return this->Map_Taken_Items;
+}

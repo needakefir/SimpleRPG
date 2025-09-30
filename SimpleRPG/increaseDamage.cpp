@@ -1,4 +1,4 @@
-#include "increaseDamage.h"
+#include "Increase and Reduction Damage.h"
 float increaseDamage(Type::AttackType::Player_Attacks a, short difficulty)
 {
 	switch (difficulty)

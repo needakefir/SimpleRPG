@@ -135,12 +135,14 @@
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="NumGen.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerAttackToScore.cpp" />
     <ClCompile Include="printPlayerAttacks.cpp" />
     <ClCompile Include="printRoad.cpp" />
     <ClCompile Include="RandEntityType.cpp" />
     <ClCompile Include="ReductionDamage.cpp" />
     <ClCompile Include="ReplaceCharFromMap.cpp" />
     <ClCompile Include="SearchForLastMonster.cpp" />
+    <ClCompile Include="GetChancesOfAttack.cpp" />
     <ClCompile Include="updateRoad.cpp" />
     <ClCompile Include="startGame.cpp" />
     <ClCompile Include="Witch.cpp" />
