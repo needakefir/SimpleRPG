@@ -1,10 +1,9 @@
 #include "Player.h"
 #include "Constants and Types.h"
-#include <vector>
 void printPlayerAttacks(Player& p)
 {
 	std::cout << "Ваши стандартые атаки:Меч,Лук,Кулак(Sword,Bow,Fist).\n";
-	for ( auto type : p.retProtItems())
+	for ( auto& type : p.retPlayerItems())
 	{
 		if (type == Type::PlayerInventoryItemType::P_Items::FireSwordPaper) {
 			std::cout << "Вы можете использовать заклинание для меча,чтобы сделать его огненным!\n";

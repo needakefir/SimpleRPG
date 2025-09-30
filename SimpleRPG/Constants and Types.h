@@ -13,13 +13,15 @@ namespace Type
 			PotionOfUndying,
 			SunLight,
 			WaterCutter,
+			Thunder
 		};
 		//Witch has the lowest priority of physical attack
-		enum class Physical_Monster_Attacks {
+		enum class  Physical_Monster_Attacks {
 			Stone,
 			ThrowSand,
 			Stick,
-		};
+			Sword
+		}; 
 		enum class Player_Attacks
 		{
 			
@@ -103,12 +105,28 @@ namespace cooldownDurablity
 	int HardCooldown(7);
 	int ImpossibleCooldown(5);
 }
-//the standard value of damage for player
+//the standard value of damage for entities
 namespace StandardDamageScore
 {
-	short StandardDamageBow(20);
-	short StandardDamageSword(25);
-	short StandardDamageFist(10);
+	namespace Player {
+		short StandardDamageBow(20);
+		short StandardDamageSword(25);
+		short StandardDamageFist(10);
+
+	}
+	namespace Monster {
+		namespace MonstersMagicalAttack {
+			short SunLight(35);
+			short WaterCutter(25);
+			short Thunder(40);
+		}
+		namespace MonstersPhysicalAttack {
+			short Stone(15);
+			short ThrowSand(10);
+			short Stick(8);
+			short Sword(20);
+		}
+	}
 }
 //this namespace stores damage scaling values ​​based on difficulty.
 namespace IncreaseDamageMagicPlayerItems{
@@ -153,28 +171,6 @@ namespace AttackChanceForAI {
 		float MagicMiddleYeti{ 0.2f };
 		float MagicHardYeti{ 0.3f };
 		float MagicImpossibleYeti{ 0.35f };
-	}
-	namespace PhysicalAttackChance {
-		//For a Witch
-		float PhysicalSimpleWitch{ 0.35f };
-		float PhysicalMiddleWitch{ 0.3f };
-		float PhysicalHardWitch{ 0.2f };
-		float PhysicalImpossibleWitch{ 0.05f };
-		//For a Knight
-		float PhysicalSimpleKnight{ 0.9f };
-		float PhysicalMiddleKnight{ 0.85f };
-		float PhysicalHardKnight{ 0.75f };
-		float PhysicalImpossibleKnight{ 0.7f };
-		//For a goblin
-		float PhysicalSimpleGoblin{ 0.99f };
-		float PhysicalMiddleGoblin{ 0.97f };
-		float PhysicalHardGoblin{ 0.93f };
-		float PhysicalImpossibleGoblin{ 0.9f };
-		//For a Yeti
-		float PhysicalSimpleYeti{ 0.85f };
-		float PhysicalMiddleYeti{ 0.8f };
-		float PhysicalHardYeti{ 0.7f };
-		float PhysicalImpossibleYeti{ 0.65f };
 	}
 }
 //Chars for ReplacFromMap.cpp

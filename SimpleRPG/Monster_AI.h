@@ -6,9 +6,9 @@ public:
 	float getMagicChanceAttack();
 	void setPhysicalChanceAttack(float value);
 	float getPhysicalhanceAttack();
-	bool isAttackMagical(float chance);
-	bool isAttackPhysical(float chance);
-protected:
+	bool isAttackMagical(float chance,short difficulty);
+	bool isAttackPhysical(float chance,short difficulty);
+private:
 	float MagicChanceAttack;
 	float PhysicalChanceAttack;
 };

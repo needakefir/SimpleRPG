@@ -8,11 +8,9 @@
 class Player : public Entity {
 public:
 	//Constructor
-	Player(int hp,int damage,std::string& name,int X);
+	Player(int hp,std::string& name,int X);
 	void attackEntity(Monster& m,Type::AttackType::Player_Attacks a,short difficulty);
-	using Entity::getDamage;
 	using Entity::getHP;
-	using Entity::setDamage;
 	int getX() const;
 	void addX();
 	void minusX();
@@ -35,6 +33,6 @@ protected:
 	std::map<int, bool> Map_Defeated_Monsters;
 	//For taken items
 	std::map<int, bool> Map_Taken_Items;
-	//X of player on map
+	//X of player on road
 	int P_X;
 };

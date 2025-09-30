@@ -13,7 +13,7 @@ constexpr auto Player_Fail = -1;
 constexpr auto RoadLength = 78;
 //Pre-announcement of needed functions
 //The description of functions in their files
-char ReplaceCharFromMap(char* src, short length, short countRoad, std::map<int, Type::MonsterType::E_Types>& map);
+char*  replaceCharFromMap(char* BodyPlayer, char* HeadPlayer, short length, short countRoad, std::map<int, Type::MonsterType::E_Types>& map, std::map<int, bool>& Defeated_Monsters);
 Type::AttackType::Player_Attacks ConvertStringToType(std::string& source);
 int NumGen(int min, int max);
 Type::MonsterType::E_Types& RandMonsterType();
@@ -68,7 +68,7 @@ int updateRoad(Player& p, short difficulty)
 	//Generate type of monster
 	type = RandMonsterType();
 	//Generate X for monster
-	X = p.getX() + NumGen(6, 10);
+	X = p.getX() + NumGen(5,8);
 	//Register monster
 	m.registerMonster(type);
 	//Print Road
@@ -120,7 +120,7 @@ int updateRoad(Player& p, short difficulty)
 				//Init a last position of defeated monster
 				last = X;
 				//Generate a new monster position
-				X = p.getX() + NumGen(6, 10);
+				X = p.getX() + NumGen(5,8);
 				m.registerMonster(type);
 			}
 			else if (p.getDefeated())
@@ -171,7 +171,9 @@ int updateRoad(Player& p, short difficulty)
 					printPlayerAttacks(p);
 					std::string attack{ cooldown(cooldownDur) };
 					p.attackEntity(m, ConvertStringToType(attack),difficulty);
-					std::cout << "Вы нанесли " << m.getName() << " урон " << m.getDamage() * increaseDamage(ConvertStringToType(attack), difficulty);
+					std::cout << "Вы нанесли " << m.getName() << " урон " <<  * increaseDamage(ConvertStringToType(attack), difficulty) << "!\n";
+					m.attackPlayer(p,)
+					std::cout<< ""
 				} while (!m.getDefeated() && !p.getDefeated());
 				if (p.getDefeated())
 				{
