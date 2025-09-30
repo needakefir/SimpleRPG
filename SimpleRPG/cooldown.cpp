@@ -15,7 +15,7 @@ std::string cooldown(short seconds)
 		elapsed = clock() - start;
 		if (elapsed == time * CLOCKS_PER_SEC)
 		{
-			//Check every second for input,else repeat std::cin;
+			//Check every second for input,else repeat std:::cin;
 			if (elapsed == (seconds - minusSeconds) * CLOCKS_PER_SEC)
 			{
 				for (auto& i : ContainerOfAttacks::attacks)
@@ -37,4 +37,5 @@ std::string cooldown(short seconds)
 			}
 		}
 	} while (elapsed < end);
+	return "Nothing";
 }
