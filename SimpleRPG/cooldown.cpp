@@ -37,4 +37,5 @@ std::string cooldown(short seconds)
 			}
 		}
 	} while (elapsed < end);
+
 }

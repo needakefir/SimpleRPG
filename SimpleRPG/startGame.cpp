@@ -8,7 +8,7 @@ int updateRoad(Player& P,short difficulty);
 //global Player
 void startGame(unsigned short code,std::string& name)
 {
-	Player p{ 0,0,0,name};
+	Player p{0,name,0};
 	setlocale(LC_ALL, "Russian");
 	switch (code)
 	{

@@ -117,6 +117,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,6 +142,7 @@
     <ClCompile Include="RandEntityType.cpp" />
     <ClCompile Include="ReductionDamage.cpp" />
     <ClCompile Include="ReplaceCharFromMap.cpp" />
+    <ClCompile Include="retDamageScoreByTypeOfAttack.cpp" />
     <ClCompile Include="SearchForLastMonster.cpp" />
     <ClCompile Include="GetChancesOfAttack.cpp" />
     <ClCompile Include="updateRoad.cpp" />
@@ -156,6 +158,7 @@
     <ClInclude Include="Knight.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="retDamageScoreByTypeOfAttack.h" />
     <ClInclude Include="Witch.h" />
     <ClInclude Include="Yeti.h" />
   </ItemGroup>

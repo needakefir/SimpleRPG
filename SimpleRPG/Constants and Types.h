@@ -13,14 +13,16 @@ namespace Type
 			PotionOfUndying,
 			SunLight,
 			WaterCutter,
-			Thunder
+			Thunder,
+			Null=-1
 		};
 		//Witch has the lowest priority of physical attack
 		enum class  Physical_Monster_Attacks {
 			Stone,
 			ThrowSand,
 			Stick,
-			Sword
+			Sword,
+			Null=-1
 		}; 
 		enum class Player_Attacks
 		{

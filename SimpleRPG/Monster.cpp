@@ -2,9 +2,10 @@
 #include "Monster.h"
 #include "Player.h"
 #include "Increase and Reduction Damage.h"
+#include "retDamageScoreByTypeOfAttack.h"
 std::pair<float, float> GetChancesOfAttack(Type::MonsterType::E_Types type, short difficulty);
 Monster::Monster(int hp=0,std::string& name, Type::MonsterType::E_Types type) :Entity(hp,name), M_type(type) {}
-bool Monster::attackPlayer(Player& p,Type::MonsterType::E_Types type,short difficulty)
+bool Monster::attackPlayer(Player& p,Type::MonsterType::E_Types type,short difficulty,Type::AttackType::Physical_Monster_Attacks ph=Type::AttackType::Physical_Monster_Attacks::Null, Type::AttackType::Magical_Monster_Attacks m=Type::AttackType::Magical_Monster_Attacks::Null)
 {
 	//For every type getting chance of any type of attack for AI.
 	std::pair<float, float> chances =GetChancesOfAttack(type,difficulty);
@@ -12,27 +13,40 @@ bool Monster::attackPlayer(Player& p,Type::MonsterType::E_Types type,short diffi
 	this->AI.setMagicChanceAttack(chances.first);
 	this->AI.setPhysicalChanceAttack(chances.second);
 	//----------------------------------------
-	bool Magic = this->AI.isAttackMagical(AI.getMagicChanceAttack(),difficulty);
-	bool Physical = this->AI.isAttackPhysical(AI.getPhysicalhanceAttack(),difficulty);
+	bool Magic = this->AI.isAttackMagical(AI.getMagicChanceAttack(),difficulty,type,m);
+	bool Physical = this->AI.isAttackPhysical(AI.getPhysicalhanceAttack(),difficulty,type,ph);
 	//If Magic and Physical is true,then trying to get one of parameters true.
 	while (true)
 	{
 		if (Magic ^ Physical)
 		{
-			bool Magic = this->AI.isAttackMagical(AI.getMagicChanceAttack());
-			bool Physical = this->AI.isAttackPhysical(AI.getPhysicalhanceAttack());
+			Magic = this->AI.isAttackMagical(AI.getMagicChanceAttack(), difficulty,type,m);
+			Physical = this->AI.isAttackPhysical(AI.getPhysicalhanceAttack(), difficulty,type,ph);
 		}
 		else
 			break;
 	}
 	if (Magic)
 	{ 
-
-	}
+		if (m != Type::AttackType::Magical_Monster_Attacks::Null)
+			p.setHP(p.getHP() - retDamageScoreByTypeOfAttack(m) * increaseDamage(m, difficulty));
+		else
+		{
+			return;
+		}
+		
+}
 	else if (Physical)
 	{
-
+		if (ph != Type::AttackType::Physical_Monster_Attacks::Null)
+		{
+			p.setHP(p.getHP() - retDamageScoreByTypeOfAttack(ph) * increaseDamage(ph, difficulty));
+		}
+		else
+			return;
+		
 	}
+	return true;
 }
 //Needs to add hp per difficulty
 Monster Monster::registerMonster(Type::MonsterType::E_Types type)
