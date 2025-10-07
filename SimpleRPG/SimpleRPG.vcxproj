@@ -129,9 +129,8 @@
     <ClCompile Include="ConvertStringToType.cpp" />
     <ClCompile Include="cooldown.cpp" />
     <ClCompile Include="Entity.cpp" />
-    <ClCompile Include="FightMonster.cpp" />
+    <ClCompile Include="Fight.cpp" />
     <ClCompile Include="increaseDamage.cpp" />
-    <ClCompile Include="Knight.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="NumGen.cpp" />
@@ -147,20 +146,15 @@
     <ClCompile Include="GetChancesOfAttack.cpp" />
     <ClCompile Include="updateRoad.cpp" />
     <ClCompile Include="startGame.cpp" />
-    <ClCompile Include="Witch.cpp" />
-    <ClCompile Include="Yeti.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Monster_AI.h" />
     <ClInclude Include="Constants and Types.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Increase and Reduction Damage.h" />
-    <ClInclude Include="Knight.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="retDamageScoreByTypeOfAttack.h" />
-    <ClInclude Include="Witch.h" />
-    <ClInclude Include="Yeti.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

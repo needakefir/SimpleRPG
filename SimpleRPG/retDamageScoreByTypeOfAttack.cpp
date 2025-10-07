@@ -1,4 +1,5 @@
 #include "Constants and Types.h"
+//Choose by a player attack 
 int retDamageScoreByTypeOfAttack(Type::AttackType::Player_Attacks a)
 {
 	switch (a)
@@ -11,6 +12,7 @@ int retDamageScoreByTypeOfAttack(Type::AttackType::Player_Attacks a)
 			return StandardDamageScore::Player::StandardDamageSword;
 	}
 }
+//Choose by a magical attack of monster
 int retDamageScoreByTypeOfAttack(Type::AttackType::Magical_Monster_Attacks m)
 {
 	switch (m)
@@ -24,6 +26,7 @@ int retDamageScoreByTypeOfAttack(Type::AttackType::Magical_Monster_Attacks m)
 
 	}
 }
+//Choose by a physical attack of monster
 int retDamageScoreByTypeOfAttack(Type::AttackType::Physical_Monster_Attacks ph)
 {
 	switch (ph)

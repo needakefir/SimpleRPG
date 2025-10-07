@@ -14,10 +14,8 @@ public:
 	//-----------------------------
 	void setType(Type::MonsterType::E_Types type);
 	Type::MonsterType::E_Types getType();
-	bool hasResist(Type::AttackType::Player_Attacks Attack);
 	bool attackPlayer(Player& p, Type::MonsterType::E_Types type, short difficulty, Type::AttackType::Physical_Monster_Attacks ph = Type::AttackType::Physical_Monster_Attacks::Null, Type::AttackType::Magical_Monster_Attacks m = Type::AttackType::Magical_Monster_Attacks::Null);
 	Monster registerMonster(Type::MonsterType::E_Types type);
-
 protected: 
 	Monster_AI AI;
 	Type::MonsterType::E_Types M_type;

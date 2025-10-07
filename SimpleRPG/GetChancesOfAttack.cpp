@@ -1,30 +1,27 @@
 #include "Constants and Types.h"
 std::pair<float,float> GetChancesOfAttack(Type::MonsterType::E_Types type,short difficulty)
 {
-	
-	float ChanceMagic;
-	float ChancePhysical;
-	std::pair<float, float> chances = { ChanceMagic,ChancePhysical };
+	std::pair<float, float> chances;
 	switch (type)
 	{
 	case Type::MonsterType::E_Types::Witch:
 		switch (difficulty)
 		{
 		case 1:
-			ChanceMagic = AttackChanceForAI::MagicAttackChance::MagicSimpleWitch;
-			ChancePhysical = 1.0f - AttackChanceForAI::MagicAttackChance::MagicSimpleWitch;
+			 chances.first = AttackChanceForAI::MagicAttackChance::MagicSimpleWitch;
+			chances.second = 1.0f - AttackChanceForAI::MagicAttackChance::MagicSimpleWitch;
 			break;
 		case 2:
-			ChanceMagic = AttackChanceForAI::MagicAttackChance::MagicMiddleWitch;
-			ChancePhysical = 1.0f - AttackChanceForAI::MagicAttackChance::MagicMiddleWitch;
+			chances.first = AttackChanceForAI::MagicAttackChance::MagicMiddleWitch;
+			chances.second = 1.0f - AttackChanceForAI::MagicAttackChance::MagicMiddleWitch;
 			break;
 		case 3:
-			ChanceMagic = AttackChanceForAI::MagicAttackChance::MagicHardWitch;
-			ChancePhysical = 1.0f - AttackChanceForAI::MagicAttackChance::MagicHardWitch;
+			chances.first = AttackChanceForAI::MagicAttackChance::MagicHardWitch;
+			chances.second = 1.0f - AttackChanceForAI::MagicAttackChance::MagicHardWitch;
 			break;
 		case 4:
-			ChanceMagic = AttackChanceForAI::MagicAttackChance::MagicImpossibleWitch;
-			ChancePhysical = 1.0f - AttackChanceForAI::MagicAttackChance::MagicImpossibleWitch;
+			chances.first = AttackChanceForAI::MagicAttackChance::MagicImpossibleWitch;
+			chances.second = 1.0f - AttackChanceForAI::MagicAttackChance::MagicImpossibleWitch;
 			break;
 		}
 		break;
@@ -32,20 +29,20 @@ std::pair<float,float> GetChancesOfAttack(Type::MonsterType::E_Types type,short 
 		switch (difficulty)
 		{
 		case 1:
-			ChanceMagic = AttackChanceForAI::MagicAttackChance::MagicSimpleKnight;
-			ChancePhysical = 1.0f - AttackChanceForAI::MagicAttackChance::MagicSimpleKnight;
+			chances.first = AttackChanceForAI::MagicAttackChance::MagicSimpleKnight;
+			chances.second = 1.0f - AttackChanceForAI::MagicAttackChance::MagicSimpleKnight;
 			break;
 		case 2:
-			ChanceMagic = AttackChanceForAI::MagicAttackChance::MagicMiddleKnight;
-			ChancePhysical = 1.0f - AttackChanceForAI::MagicAttackChance::MagicMiddleKnight;
+			chances.first = AttackChanceForAI::MagicAttackChance::MagicMiddleKnight;
+			chances.second = 1.0f - AttackChanceForAI::MagicAttackChance::MagicMiddleKnight;
 			break;
 		case 3:
-			ChanceMagic = AttackChanceForAI::MagicAttackChance::MagicHardKnight;
-			ChancePhysical = 1.0f - AttackChanceForAI::MagicAttackChance::MagicHardKnight;
+			chances.first = AttackChanceForAI::MagicAttackChance::MagicHardKnight;
+			chances.second = 1.0f - AttackChanceForAI::MagicAttackChance::MagicHardKnight;
 			break;
 		case 4:
-			ChanceMagic = AttackChanceForAI::MagicAttackChance::MagicImpossibleKnight;
-			ChancePhysical = 1.0f - AttackChanceForAI::MagicAttackChance::MagicImpossibleKnight;
+			chances.first = AttackChanceForAI::MagicAttackChance::MagicImpossibleKnight;
+			chances.second = 1.0f - AttackChanceForAI::MagicAttackChance::MagicImpossibleKnight;
 			break;
 		}
 		break;
@@ -53,20 +50,20 @@ std::pair<float,float> GetChancesOfAttack(Type::MonsterType::E_Types type,short 
 		switch (difficulty)
 		{
 		case 1:
-			ChanceMagic = AttackChanceForAI::MagicAttackChance::MagicSimpleGoblin;
-			ChancePhysical = 1.0f - AttackChanceForAI::MagicAttackChance::MagicSimpleGoblin;
+			chances.first = AttackChanceForAI::MagicAttackChance::MagicSimpleGoblin;
+			chances.second = 1.0f - AttackChanceForAI::MagicAttackChance::MagicSimpleGoblin;
 			break;
 		case 2:
-			ChanceMagic = AttackChanceForAI::MagicAttackChance::MagicMiddleGoblin;
-			ChancePhysical = 1.0f - AttackChanceForAI::MagicAttackChance::MagicMiddleGoblin;
+			chances.first = AttackChanceForAI::MagicAttackChance::MagicMiddleGoblin;
+			chances.second = 1.0f - AttackChanceForAI::MagicAttackChance::MagicMiddleGoblin;
 			break;
 		case 3:
-			ChanceMagic = AttackChanceForAI::MagicAttackChance::MagicHardGoblin;
-			ChancePhysical = 1.0f - AttackChanceForAI::MagicAttackChance::MagicHardGoblin;
+			chances.first = AttackChanceForAI::MagicAttackChance::MagicHardGoblin;
+			chances.second = 1.0f - AttackChanceForAI::MagicAttackChance::MagicHardGoblin;
 			break;
 		case 4:
-			ChanceMagic = AttackChanceForAI::MagicAttackChance::MagicImpossibleGoblin;
-			ChancePhysical = 1.0f - AttackChanceForAI::MagicAttackChance::MagicImpossibleGoblin;
+			chances.first = AttackChanceForAI::MagicAttackChance::MagicImpossibleGoblin;
+			chances.second = 1.0f - AttackChanceForAI::MagicAttackChance::MagicImpossibleGoblin;
 			break;
 		}
 		break;
@@ -74,20 +71,20 @@ std::pair<float,float> GetChancesOfAttack(Type::MonsterType::E_Types type,short 
 		switch (difficulty)
 		{
 		case 1:
-			ChanceMagic = AttackChanceForAI::MagicAttackChance::MagicSimpleYeti;
-			ChancePhysical = 1.0f - AttackChanceForAI::MagicAttackChance::MagicSimpleYeti;
+			chances.first = AttackChanceForAI::MagicAttackChance::MagicSimpleYeti;
+			chances.second = 1.0f - AttackChanceForAI::MagicAttackChance::MagicSimpleYeti;
 			break;
 		case 2:
-			ChanceMagic = AttackChanceForAI::MagicAttackChance::MagicMiddleYeti;
-			ChancePhysical = 1.0f - AttackChanceForAI::MagicAttackChance::MagicMiddleYeti;
+			chances.first = AttackChanceForAI::MagicAttackChance::MagicMiddleYeti;
+			chances.second = 1.0f - AttackChanceForAI::MagicAttackChance::MagicMiddleYeti;
 			break;
 		case 3:
-			ChanceMagic = AttackChanceForAI::MagicAttackChance::MagicHardYeti;
-			ChancePhysical = 1.0f - AttackChanceForAI::MagicAttackChance::MagicHardYeti;
+			chances.first = AttackChanceForAI::MagicAttackChance::MagicHardYeti;
+			chances.second = 1.0f - AttackChanceForAI::MagicAttackChance::MagicHardYeti;
 			break;
 		case 4:
-			ChanceMagic = AttackChanceForAI::MagicAttackChance::MagicImpossibleYeti;
-			ChancePhysical = 1.0f - AttackChanceForAI::MagicAttackChance::MagicImpossibleYeti;
+			chances.first = AttackChanceForAI::MagicAttackChance::MagicImpossibleYeti;
+			chances.second = 1.0f - AttackChanceForAI::MagicAttackChance::MagicImpossibleYeti;
 			break;
 		}
 		break;

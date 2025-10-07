@@ -125,7 +125,7 @@ int updateRoad(Player& p, short difficulty)
 			}
 			else if (p.getDefeated())
 			{
-				std::cout << "ВЫ проиграли....\n";
+				std::cout << "Вы проиграли....\n";
 				return Player_Fail;
 			}
 		}
@@ -138,7 +138,7 @@ int updateRoad(Player& p, short difficulty)
 				{
 					system("cls");
 					--countRoad;
-					replaceCharFromMap(BodyPlayer, HeadPlayer,RoadLength,countRoad,p.retMap(),p.retDefeatedOrTaken());
+					replaceCharFromMap(BodyPlayer, HeadPlayer,RoadLength,countRoad,p.retMap(),p.retDefeatedAndTaken());
 					printRoad(HeadPlayer, BodyPlayer, roadline, RoadLength);
 				}
 				else
@@ -171,7 +171,7 @@ int updateRoad(Player& p, short difficulty)
 					printPlayerAttacks(p);
 					std::string attack{ cooldown(cooldownDur) };
 					p.attackEntity(m, ConvertStringToType(attack),difficulty);
-					m.attackPlayer(p, type);
+					m.attackPlayer(p,type,difficulty,);
 				} while (!m.getDefeated() && !p.getDefeated());
 				if (p.getDefeated())
 				{

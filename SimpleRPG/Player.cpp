@@ -18,27 +18,9 @@ void Player::attackEntity(Monster& m, Type::AttackType::Player_Attacks a,short d
 {
 	m.setHP(m.getHP() - retDamageScoreByTypeOfAttack(a) * ReductionDamageForPlayer(difficulty));
 }
-std::map<int, bool>& Player::retDefeatedOrTaken(TargetsForRetDefeatedOrTaken::Targets t)
+std::map<int, char>& Player::retDefeatedAndTaken()
 {
-	if (t == TargetsForRetDefeatedOrTaken::Targets::DEFEATED)
-	{
-		return this->Map_Defeated_Monsters;
-	}
-	else if (t == TargetsForRetDefeatedOrTaken::Targets::TAKEN)
-	{
-		return this->Map_Taken_Items;
-	}
-}
-bool hasResist(std::vector<Type::PlayerInventoryItemType::P_Items>& Items, Type::AttackType::Magical_Monster_Attacks m)
-{
-	for (auto& n : Items)
-	{
-
-	}
-}
-bool hasResist(std::vector<Type::PlayerInventoryItemType::P_Items>& Items, Type::AttackType::Physical_Monster_Attacks m)
-{
-
+	return this->Defeated_And_Taken;
 }
 std::map<int, Type::PlayerInventoryItemType::P_Items>& Player::retMapItems()
 {

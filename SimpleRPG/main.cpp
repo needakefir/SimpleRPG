@@ -3,9 +3,12 @@
 //This is the simpiest cpp file i wrote int this project
 #include <iostream>
 #include <string>
+#include <ctime>
+#include <cstdlib>
 void startGame(unsigned short code,std::string& name);
 int main()
 {
+	srand(static_cast<unsigned int>(time(0)));
 	std::string player_name;
 	char Difficulty;
 	std::cout << "Created by needakefir!\n";
@@ -44,6 +47,7 @@ int main()
 		std::cout << "Вы выбрали уровень сложности:Middle!\n";
 		std::cout << "----------------------------------------------------------------------------------------------\n";
 		startGame(2,player_name);
+		break;
 	case 'H':
 		std::cout << "Вы выбрали уровень сложности:Hard!\n";
 		std::cout << "----------------------------------------------------------------------------------------------\n";
@@ -54,7 +58,8 @@ int main()
 		std::cout << "----------------------------------------------------------------------------------------------\n";
 		startGame(4, player_name);
 		break;
-
+	default:
+		;
 	}
 	return 0;
 }

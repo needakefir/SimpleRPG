@@ -6,8 +6,8 @@ public:
 	float getMagicChanceAttack();
 	void setPhysicalChanceAttack(float value);
 	float getPhysicalhanceAttack();
-	bool isAttackMagical(float chance, short difficulty, Type::MonsterType::E_Types type, Type::AttackType::Magical_Monster_Attacks m);
-	bool isAttackPhysical(float chance, short difficulty, Type::MonsterType::E_Types type, Type::AttackType::Physical_Monster_Attacks ph);
+	bool isAttackMagical(std::pair<float,float>& pair,short difficulty, Type::MonsterType::E_Types type, Type::AttackType::Magical_Monster_Attacks m);
+	bool isAttackPhysical(std::pair<float,float>& pair,short difficulty, Type::MonsterType::E_Types type, Type::AttackType::Physical_Monster_Attacks ph);
 private:
 	float MagicChanceAttack;
 	float PhysicalChanceAttack;

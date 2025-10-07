@@ -182,6 +182,7 @@ namespace Chars
 	char MonsterOnMap{ '!' };
 	char ItemMap{ '?' };
 }
+//status of monster or item for func retDefeatedOrTaken in Player.cpp
 namespace TargetsForRetDefeatedOrTaken
 {
 	enum class Targets

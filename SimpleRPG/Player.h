@@ -22,9 +22,7 @@ public:
 	void addEntityToMap(int X, Type::MonsterType::E_Types type);
 	std::vector<Type::PlayerInventoryItemType::P_Items>& retPlayerItems();
 	std::map<int, Type::PlayerInventoryItemType::P_Items>& retMapItems();
-	std::map<int, bool>& retDefeatedOrTaken(TargetsForRetDefeatedOrTaken::Targets t);
-	bool hasResist(std::vector<Type::PlayerInventoryItemType::P_Items>& Items, Type::AttackType::Magical_Monster_Attacks m);
-	bool hasResist(std::vector<Type::PlayerInventoryItemType::P_Items>& Items, Type::AttackType::Physical_Monster_Attacks m);
+	std::map<int, char>& retDefeatedAndTaken();
 protected:
 	//Items in Player Inventory
 	std::vector<Type::PlayerInventoryItemType::P_Items> P_Items;
@@ -32,10 +30,8 @@ protected:
 	std::map<int, Type::MonsterType::E_Types> Map_Monsters;
 	//Map for items on road 
 	std::map<int, Type::PlayerInventoryItemType::P_Items> Items_On_Road;
-	//For defeated monsters
-	std::map<int, bool> Map_Defeated_Monsters;
-	//For taken items
-	std::map<int, bool> Map_Taken_Items;
+	//For defeated monsters and taken items
+	std::map<int, char> Defeated_And_Taken;
 	//X of player on road
 	int P_X;
 	//Active protection items 
