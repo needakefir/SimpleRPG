@@ -6,20 +6,19 @@
 #include <cstdlib>
 #include "Constants and Types.h"
 #include "Increase and Reduction Damage.h"
-
 //If player dies,the return this 
 constexpr auto Player_Fail = -1;
 //For a updating road
 constexpr auto RoadLength = 78;
 //Pre-announcement of needed functions
 //The description of functions in their files
-void replaceCharFromMap(char* BodyPlayer, char* HeadPlayer, short length, short countRoad, std::map<int, Type::MonsterType::E_Types>& map, std::map<int, bool>& Defeated_Monsters);
+void replaceCharFromMap(char* BodyPlayer, char* HeadPlayer, short length, short countRoad, std::map<int, char>& Defeated, std::map<int, char>& Taken);
 Type::AttackType::Player_Attacks ConvertStringToType(std::string& source);
 int NumGen(int min, int max);
 Type::MonsterType::E_Types& RandMonsterType();
 void printPlayerAttacks(Player& p);
 std::string cooldown(short seconds);
-void printRoad(const char* HeadPlayer, const char* BodyPlayer, const char* roadline,short length);
+void printRoad(const char* HeadPlayer, const char* BodyPlayer, const char* roadline);
 Type::MonsterType::E_Types SearchForLastMonster(std::map<int, Type::MonsterType::E_Types>& map, int lastPos);
 //------
 //For road coordinate
@@ -72,7 +71,7 @@ int updateRoad(Player& p, short difficulty)
 	//Register monster
 	m.registerMonster(type);
 	//Print Road
-	printRoad(HeadPlayer,BodyPlayer,roadline,RoadLength);
+	printRoad(HeadPlayer,BodyPlayer,roadline);
 	char Ctrl;
 	while (true)
 	Ctrl = _getch();
@@ -82,7 +81,7 @@ int updateRoad(Player& p, short difficulty)
 		system("cls");
 		std::swap(HeadPlayer[i], HeadPlayer[i + 1]);
 		std::swap(BodyPlayer[i], BodyPlayer[i + 1]);
-		printRoad(HeadPlayer, BodyPlayer, roadline,RoadLength);
+		printRoad(HeadPlayer, BodyPlayer, roadline);
 		++i;
 		p.addX();
 		if (p.getX() == RoadLength * countRoad)
@@ -92,7 +91,7 @@ int updateRoad(Player& p, short difficulty)
 			++countRoad;
 			i = 0;
 			system("cls");
-			printRoad(HeadPlayer, BodyPlayer, roadline,RoadLength);
+			printRoad(HeadPlayer, BodyPlayer, roadline);
 		}
 		//If player reaches the X then we attack the monster.If successful,then generate new
 		if (p.getX() == X)
@@ -138,8 +137,8 @@ int updateRoad(Player& p, short difficulty)
 				{
 					system("cls");
 					--countRoad;
-					replaceCharFromMap(BodyPlayer, HeadPlayer,RoadLength,countRoad,p.retMap(),p.retDefeatedAndTaken());
-					printRoad(HeadPlayer, BodyPlayer, roadline, RoadLength);
+					replaceCharFromMap(BodyPlayer, HeadPlayer,RoadLength,countRoad,p.retDefeated(),p.retTaken());
+					printRoad(HeadPlayer, BodyPlayer, roadline);
 				}
 				else
 				{
@@ -150,7 +149,7 @@ int updateRoad(Player& p, short difficulty)
 			//Swapping an elements of road like: -,? | ?,-
 			std::swap(HeadPlayer[i-1], HeadPlayer[i]);
 			std::swap(BodyPlayer[i-1], BodyPlayer[i]);
-			printRoad(HeadPlayer, BodyPlayer, roadline,RoadLength);
+			printRoad(HeadPlayer, BodyPlayer, roadline);
 			p.minusX();
 			//If player reaches the position of last monster,then init this monster
 			if (p.getX() == last)

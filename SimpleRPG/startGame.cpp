@@ -1,8 +1,6 @@
 #include "Player.h"
 #include "Entity.h"
-#include "Witch.h"
 #include <iostream>
-
 //Preliminary announcement of updateRoad;
 int updateRoad(Player& P,short difficulty);
 //global Player

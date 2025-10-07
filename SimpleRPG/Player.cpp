@@ -18,9 +18,13 @@ void Player::attackEntity(Monster& m, Type::AttackType::Player_Attacks a,short d
 {
 	m.setHP(m.getHP() - retDamageScoreByTypeOfAttack(a) * ReductionDamageForPlayer(difficulty));
 }
-std::map<int, char>& Player::retDefeatedAndTaken()
+std::map<int, char>& Player::retDefeated()
 {
-	return this->Defeated_And_Taken;
+	return this->DefeatedMonsters;
+}
+std::map<int, char>& Player::retTaken()
+{
+	return this->TakenItems;
 }
 std::map<int, Type::PlayerInventoryItemType::P_Items>& Player::retMapItems()
 {
